@@ -58,6 +58,25 @@ $ bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1
 $ bin/kafka-topics.sh --list --zookeeper localhost:2181
 ```
 
+5 - Great! Now we need to start **json data generator** using the following command
+
+```bash
+$ java -jar json-data-generator-1.2.1.jar jackieChanSimConfig.json
+```
+
+You may note that we must copy the **jackieChanSimConfig.json** file and **jackieChanWorkflow.json** file to the current directory to run the **.jar** application. Both files can be found in **config** folder
+
+6 - After the above command, we will see a output similar to the follow
+
+```bash
+016-05-26 19:33:45,740 DEBUG n.a.d.j.g.l.KafkaLogger [Thread-2] Sending event to Kafka: [ {"timestamp":"2016-05-26T19:33:45.740Z","style":"WUSHU","action":"BLOCK","weapon":"STAFF","target":"LEGS","strength":5.4437} ]
+```
+
+7 - Now we are ready to consume all Kafka messages by using the following command:
+
+```bash
+$ bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic jackieChanCommand --from-beginning
+```
 
  
 
