@@ -36,6 +36,8 @@ We can type some message after run the command above
 $ bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic test --from-beginning
 ```
 
+# Installing and Testing JSON Data Generator
+
 
 
 
